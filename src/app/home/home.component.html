@@ -1,0 +1,129 @@
+<!--All the categories are displayed here in short-->
+<div class="container">
+  <div class="row">
+    <select id="category" class="form-control mt-2" name="category" [(ngModel)]="category" (change)="onChange()">
+      <option *ngFor="let category of allCategories" [value]="category">{{category}}</option>
+    </select>
+    <hr>
+    <input class="form-control mt-2" type="text" [(ngModel)]="searchText" name="searchText">
+  </div>
+  <div class="row">
+    <div *ngFor="let detail of allDetails | filter:searchText" class="d-flex col mt-3">
+      <div *ngIf="detail.isbn" class="card" style="width: 18rem; border: 1px solid red;margin: auto" (click)="displayFullView(detail.url)">
+        <!--This is a dummy image for book-->
+        <img class="card-img-top" src="assets/images/bookImg.jpeg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{detail.name}}</h5>
+          <h5 *ngIf="detail.name == '' " class="card-title">Not Provied</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Book</h6>
+          <p class="card-text">{{detail.authors}}</p>
+          <p *ngIf="detail.authors[0] == null || detail.authors[0] == '' " class="card-text">Not Provided</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-6">
+                <small>Publisher</small>
+              </div>
+              <div class="col-6">
+                <small class="text-muted">{{detail.publisher}}</small>
+                <small *ngIf="detail.publisher == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-6">
+                <small>released</small>
+              </div>
+              <div class="col-6">
+                <small class="text-muted">{{detail.released | date}}</small>
+                <small *ngIf="detail.released == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="card-body">
+          <a class="card-link" area-disabled>Click on card for More Details</a>
+        </div>
+      </div>
+
+      <div *ngIf="detail.gender" class="card" style="width: 18rem; border: 1px solid blue;margin: auto" (click)="displayFullView(detail.url)">
+        <!--This is a dummy image for Character-->
+        <img class="card-img-top" src="assets/images/characterImg.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{detail.name}}</h5>
+          <h5 *ngIf="detail.name == '' " class="card-title">Not Provided</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Character</h6>
+          <p class="card-text">{{detail.gender}}</p>
+          <p *ngIf="detail.gender == '' " class="card-text">Not Provided</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-6">
+                <small>Born</small>
+              </div>
+              <div class="col-6">
+                <small class="text-muted">{{detail.born}}</small>
+                <small *ngIf="detail.born == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-6">
+                <small>Died</small>
+              </div>
+              <div class="col-6">
+                <small class="text-muted">{{detail.died | date}}</small>
+                <small *ngIf="detail.died == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="card-body">
+          <a class="card-link" area-disabled>Click on card for More Details</a>
+        </div>
+      </div>
+
+      <div *ngIf="detail.region" class="card" style="width: 18rem; border: 1px solid green;margin: auto" (click)="displayFullView(detail.url)">
+        <!--This is a dummy image for house-->
+        <img class="card-img-top" src="assets/images/housesImg.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 *ngIf="detail.name" class="card-title">{{detail.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">House</h6>
+          <p class="card-text">{{detail.region}}</p>
+          <p *ngIf="detail.region == '' " class="card-text">Not Provided</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-6">
+                <small>Founded</small>
+              </div>
+              <div class="col-6">
+                <small class="text-muted">{{detail.founded}}</small>
+                <small *ngIf="detail.founded == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-6">
+                <small>Current Lord</small>
+              </div>
+              <div class="col-6">
+                <small class="text-muted">{{detail.currentLord}}</small>
+                <small *ngIf="detail.currentLord == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="card-body">
+          <a class="card-link" area-disabled>Click on card for More Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

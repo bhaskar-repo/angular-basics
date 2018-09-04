@@ -1,0 +1,396 @@
+<!--This is detailed view for all the categories books,characters,houses-->
+<div class="container">
+  <div class="row">
+    <div class="col mt-2" *ngIf="detail">
+      <!--start of books-->
+      <div *ngIf="detail.isbn" class="card" style="width: 70vw; border: 1px solid red;margin:auto">
+        <!--This is a dummy image for book-->
+        <img class="card-img-top" src="assets/images/bookImg.jpeg" alt="Card image cap" style="height:30vh">
+        <div class="card-body">
+          <h5 class="card-title">{{detail.name | uppercase}}</h5>
+          <h5 *ngIf="detail.name == '' " class="card-title">Not Provided</h5>
+          <p class="card-text">{{detail.authors}}</p>
+          <small *ngIf="detail.authors[0] == null || detail.authors[0] == '' " class="text-muted">Not Provided</small>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>ISBN</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.isbn}}</small>
+                <small *ngIf="detail.isbn == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Number of Pages</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.numberOfPages}}</small>
+                <small *ngIf="detail.numberOfPages == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Publisher</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.publisher}}</small>
+                <small *ngIf="detail.publisher == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Country</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.country}}</small>
+                <small *ngIf="detail.country == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Media Type</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.mediaType}}</small>
+                <small *ngIf="detail.mediaType == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Released</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.released | date}}</small>
+                <small *ngIf="detail.released == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>URL</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.url}}</small>
+                <small *ngIf="detail.url == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="card-body">
+          <h5 class="card-title">Characters</h5>
+          <p class="card-text">{{detail.characters}}</p>
+          <small *ngIf="detail.characters[0] == null || detail.characters[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Pov Characters</h5>
+          <p class="card-text">{{detail.povCharacters}}</p>
+          <small *ngIf="detail.povCharacters[0] == null || detail.povCharacters[0] == '' " class="text-muted">Not Provided</small>
+        </div>
+      </div>
+      <!--End of Books-->
+
+      <!--Start of Characters-->
+      <div *ngIf="detail.gender" class="card" style="width: 70vw; border: 1px solid blue;margin:auto">
+        <!--This is a dummy image for Character-->
+        <img class="card-img-top" src="assets/images/characterImg.jpg" alt="Card image cap" style="height:30vh">
+        <div class="card-body">
+          <h5 class="card-title">{{detail.name}}</h5>
+          <h5 *ngIf="detail.name == '' " class="card-title">Not Provided</h5>
+          <p class="card-text">{{detail.gender}}</p>
+          <p *ngIf="detail.gender == '' " class="card-text">Not Provided</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Culture</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.culture}}</small>
+                <small *ngIf="detail.culture == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Born</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.born | date}}</small>
+                <small *ngIf="detail.born == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Died</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.died | date}}</small>
+                <small *ngIf="detail.died == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Father</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.father}}</small>
+                <small *ngIf="detail.father == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Mother</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.mother}}</small>
+                <small *ngIf="detail.mother == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Spouse</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.spouse}}</small>
+                <small *ngIf="detail.spouse == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>URL</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.url}}</small>
+                <small *ngIf="detail.url == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Titles</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.titles}}</small>
+                <small *ngIf="detail.titles[0] == null || detail.titles[0] == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Aliases</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.aliases}}</small>
+                <small *ngIf="detail.aliases[0] == null || detail.aliases[0] == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Allegiances</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.allegiances}}</small>
+                <small *ngIf="detail.allegiances[0] == null || detail.allegiances[0] == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="card-body">
+          <h5 class="card-title">Books</h5>
+          <p class="card-title">{{detail.books}}</p>
+          <small *ngIf="detail.books[0] == null || detail.books[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Pov Books</h5>
+          <p class="card-title">{{detail.povBooks}}</p>
+          <small *ngIf="detail.povBooks[0] == null || detail.povBooks[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">TV Series</h5>
+          <p class="card-title">{{detail.tvSeries}}</p>
+          <small *ngIf="detail.tvSeries[0] == null || detail.tvSeries[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Played By</h5>
+          <p class="card-title">{{detail.playedBy}}</p>
+          <small *ngIf="detail.playedBy[0] == null || detail.playedBy[0] == '' " class="text-muted">Not Provided</small>
+        </div>
+
+      </div>
+      <!--End of Characters-->
+
+      <!--start of Houses-->
+      <div *ngIf="detail.region" class="card" style="width: 70vw; border: 1px solid green;margin:auto">
+        <!--This is a dummy image for house-->
+        <img class="card-img-top" src="assets/images/housesImg.jpg" alt="Card image cap" style="height:30vh">
+        <div class="card-body">
+          <h5 class="card-title">{{detail.name}}</h5>
+          <h5 *ngIf="detail.name == '' " class="card-title">Not Provided</h5>
+          <p class="card-text">{{detail.region}}</p>
+          <small *ngIf="detail.region == '' " class="text-muted">Not Provided</small>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Coat Of Arms</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.coatOfArms}}</small>
+                <small *ngIf="detail.coatOfArms == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Words</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.words}}</small>
+                <small *ngIf="detail.words == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Current Lord</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.currentLord}}</small>
+                <small *ngIf="detail.currentLord == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Heir</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.heir}}</small>
+                <small *ngIf="detail.heir == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Overlord</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.overlord}}</small>
+                <small *ngIf="detail.overlord == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Founded</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.founded}}</small>
+                <small *ngIf="detail.founded == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Founder</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.founder}}</small>
+                <small *ngIf="detail.founder == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <small><b>Died Out</b></small>
+              </div>
+              <div class="col">
+                <small class="text-muted">{{detail.diedOut}}</small>
+                <small *ngIf="detail.diedOut == '' " class="text-muted">Not Provided</small>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="card-body">
+          <h5 class="card-title">Titles</h5>
+          <p class="card-text">{{detail.titles}}</p>
+          <small *ngIf="detail.titles[0] == null || detail.titles[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Seats</h5>
+          <p class="card-text">{{detail.seats}}</p>
+          <small *ngIf="detail.seats[0] == null || detail.seats[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Cadet Branches</h5>
+          <p class="card-text">{{detail.cadetBranches}}</p>
+          <small *ngIf="detail.cadetBranches[0] == null || detail.cadetBranches[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Ancestral Weapons</h5>
+          <p class="card-text">{{detail.ancestralWeapons}}</p>
+          <small *ngIf="detail.ancestralWeapons[0] == null || detail.ancestralWeapons[0] == '' " class="text-muted">Not Provided</small>
+          <h5 class="card-title">Sworn Members</h5>
+          <p class="card-text">{{detail.swornMembers}}</p>
+          <small *ngIf="detail.swornMembers[0] == null || detail.swornMembers[0] == '' " class="text-muted">Not Provided</small>
+        </div>
+      </div>
+      <!--End of Houses-->
+
+    </div>
+  </div>
+</div>
